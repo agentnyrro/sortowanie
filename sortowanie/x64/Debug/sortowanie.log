@@ -1,0 +1,5 @@
+﻿  sortowanie.cpp
+C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\sortowanie\sortowanie.cpp(26,17): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\sortowanie\sortowanie.cpp(88,28): warning C4267: "return": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\sortowanie\sortowanie.cpp(121,29): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  sortowanie.vcxproj -> C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\x64\Debug\sortowanie.exe
