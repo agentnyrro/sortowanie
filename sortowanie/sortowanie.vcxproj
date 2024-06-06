@@ -127,10 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cSortTablicy.cpp" />
+    <ClCompile Include="cTablica.cpp" />
     <ClCompile Include="sortowanie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cSortTablicy.h" />
+    <ClInclude Include="cTablica.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
