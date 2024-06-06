@@ -1,4 +1,7 @@
 #include "cSortTablicy.h"
+#include <ctime>
+#include <cstdlib>
+#include <stdexcept>
 
 cSortTablicy::~cSortTablicy() {
     delete tablica;
@@ -22,14 +25,33 @@ void cSortTablicy::losujElementy(int n) {
     tablica = new cTablica(tab);
 }
 
+void cSortTablicy::ustawElementy(const std::vector<int>& tab) {
+    tablica = new cTablica(tab);
+}
+
+std::vector<int> cSortTablicy::getElements() const {
+    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    return tablica->getElements();
+}
+
 void cSortTablicy::sortujShakerSort() {
     if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
     tablica->shakerSort();
 }
 
-void cSortTablicy::sortujQuickSort() {
+void cSortTablicy::sortujQuickSortLomuto() {
     if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
-    tablica->quickSort(0, tablica->size() - 1);
+    tablica->quickSortLomuto(0, tablica->size() - 1);
+}
+
+void cSortTablicy::sortujQuickSortHoare() {
+    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    tablica->quickSortHoare(0, tablica->size() - 1);
+}
+
+void cSortTablicy::sortujHeapSort() {
+    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    tablica->heapSort();
 }
 
 void cSortTablicy::pokazWyniki() const {
