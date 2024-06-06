@@ -31,11 +31,14 @@ void testSorting(cSortTablicy& sortowanie, const std::vector<int>& tab) {
 }
 
 int main() {
-    cSortTablicy sortowanie;
-
-    // Test with random elements
+    /*
+    * // Test with random elements
     sortowanie.losujElementy(100);
     testSorting(sortowanie, sortowanie.getElements());
+    */
+    cSortTablicy sortowanie;
+
+    
 
     return 0;
 }

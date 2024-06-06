@@ -4,12 +4,18 @@
 #include "cTablica.h"
 #include <vector>
 #include <iostream>
+#include <fstream>
+
+using namespace std;
 
 class cSortTablicy {
 private:
     cTablica* tablica;
-
+    enum rodzajTab {los, uporz, odwr, prawie};
+    enum algorytm {shaker, qHoare, qLomuto, heap};
 public:
+    rodzajTab rTab;
+    algorytm alg;
     ~cSortTablicy();
     void wprowadzZKlawiatury(int n);
     void losujElementy(int n);
@@ -20,6 +26,7 @@ public:
     void sortujQuickSortHoare();
     void sortujHeapSort();
     void pokazWyniki() const;
+    void zapiszWyniki(ofstream& write);
 };
 
 #endif // CSORTTABLICY_H
