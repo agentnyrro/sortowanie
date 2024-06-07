@@ -11,9 +11,9 @@ using namespace std;
 class cSortTablicy {
 private:
     cTablica* tablica;
-    enum rodzajTab {los, uporz, odwr, prawie};
-    enum algorytm {shaker, qHoare, qLomuto, heap};
 public:
+    enum rodzajTab { los, uporz, odwr, prawie };
+    enum algorytm { shaker, qHoare, qLomuto, heap };
     rodzajTab rTab;
     algorytm alg;
     ~cSortTablicy();
@@ -26,7 +26,7 @@ public:
     void sortujQuickSortHoare();
     void sortujHeapSort();
     void pokazWyniki() const;
-    void zapiszWyniki(ofstream& write);
+    void wypiszWyniki(ofstream& write);
 };
 
 #endif // CSORTTABLICY_H

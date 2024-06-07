@@ -1,0 +1,5 @@
+Nazwa metody sortowania 	Dlugosc tablicy 	Rodzaj tablicy 		Liczba porownan 	Liczba przestawien
+Shaker sort			100	tablica uzupelniona losowymi liczbami	3915			2500	
+Quick sort z podzialem Hoare'a	100	tablica uzupelniona losowymi liczbami	1070			160	
+Quick sort z podzialem Lomuto	100	tablica uzupelniona losowymi liczbami	579			357	
+Sortowanie przez kopcowanie	100	tablica uzupelniona losowymi liczbami	1234			567	

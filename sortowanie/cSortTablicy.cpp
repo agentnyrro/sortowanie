@@ -21,6 +21,7 @@ void cSortTablicy::losujElementy(int n) {
     std::vector<int> tab(n);
     std::srand(std::time(0));
 
+    int ostPosort = 0; // potrzebne dla prawie posortowanej
     switch (rTab)
     {
         // 
@@ -33,27 +34,27 @@ void cSortTablicy::losujElementy(int n) {
     case cSortTablicy::uporz:
         tab[0] = std::rand() % 1000;
         for (int i = 1; i < n; ++i) {
-            tab[i] = std::rand() % 1000 + tab[i - 1]; // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = std::rand() % (1000 - tab[i - 1] + 1) + tab[i - 1]; // losowe liczby uporzadkowane od 0 do 999
         }
         tablica = new cTablica(tab);
         break;
     case cSortTablicy::odwr:
         tab[0] = std::rand() % 1000;
         for (int i = 1; i < n; ++i) {
-            tab[i] = tab[i - 1] - std::rand() % 1000; // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] - std::rand() % (tab[i - 1] + 1); // losowe liczby odwrotnie uporzadkowane od 0 do 999
         }
         tablica = new cTablica(tab);
         break;
     case cSortTablicy::prawie:
         // pierwsze 90% elementow jest posortowanych
         tab[0] = std::rand() % 1000;
-        int ostPosort = 0.9 * n - 1;
+        ostPosort = 0.9 * n - 1;
         for (int i = 1; i <= ostPosort; ++i) {
-            tab[i] = tab[i - 1] - std::rand() % 1000; // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] + std::rand() % (1000 - tab[i - 1] + 1); // losowe liczby uporzadkowane od 0 do 999
         }
         // pozostale 10% jest losowych
         for (int i = ostPosort + 1; i < n; ++i) {
-            tab[i] = std::rand() % 1000 + tab[ostPosort]; // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = std::rand() % (1000 - tab[ostPosort]) + tab[ostPosort]; // losowe liczby od 0 do 999
         }
         tablica = new cTablica(tab);
         break;
@@ -92,13 +93,13 @@ void cSortTablicy::sortujHeapSort() {
     if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
     tablica->heapSort();
 }
-void cSortTablicy::zapiszWyniki(ofstream& write)
+void cSortTablicy::wypiszWyniki(ofstream& write)
 {
     // Zapisz nazwe metody
     switch (alg)
     {
     case cSortTablicy::shaker:
-        write << "Shaker sort\t";
+        write << "Shaker sort\t\t\t";
         break;
     case cSortTablicy::qHoare:
         write << "Quick sort z podzialem Hoare'a\t";
@@ -138,10 +139,10 @@ void cSortTablicy::zapiszWyniki(ofstream& write)
     }
 
     // Zapisz liczbe porownan
-    write << tablica->getPorownania() << '\t';
+    write << tablica->getPorownania() << "\t\t\t";
 
     // Zapisz liczbe przestawien
-    write << tablica->getPrzestawienia() << '\t';
+    write << tablica->getPrzestawienia() << "\t\n";
 }
 
 void cSortTablicy::pokazWyniki() const {

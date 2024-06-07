@@ -1,3 +1,2 @@
-﻿  cSortTablicy.cpp
-C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\sortowanie\cSortTablicy.cpp(21,25): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  sortowanie.vcxproj -> C:\Users\Asus\Desktop\Projects\cpp\_Metody\sortowanie\x64\Debug\sortowanie.exe
+﻿  sortowanie.cpp
+  sortowanie.vcxproj -> C:\Users\qwert\source\repos\sortowanie\x64\Debug\sortowanie.exe
