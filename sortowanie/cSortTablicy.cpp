@@ -71,27 +71,27 @@ void cSortTablicy::ustawElementy(const std::vector<int>& tab) {
 }
 
 std::vector<int> cSortTablicy::getElements() const {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     return tablica->getElements();
 }
 
 void cSortTablicy::sortujShakerSort() {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     tablica->shakerSort();
 }
 
 void cSortTablicy::sortujQuickSortLomuto() {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     tablica->quickSortLomuto(0, tablica->size() - 1);
 }
 
 void cSortTablicy::sortujQuickSortHoare() {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     tablica->quickSortHoare(0, tablica->size() - 1);
 }
 
 void cSortTablicy::sortujHeapSort() {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     tablica->heapSort();
 }
 void cSortTablicy::wypiszWyniki(ofstream& write)
@@ -116,7 +116,7 @@ void cSortTablicy::wypiszWyniki(ofstream& write)
         break;
     }
 
-    // Zapisz dlugosz tablicy
+    // Zapisz dlugosc tablicy
     write << tablica->size() << '\t';
 
     // Zapisz rodzaj tablicy
@@ -147,7 +147,7 @@ void cSortTablicy::wypiszWyniki(ofstream& write)
 }
 
 void cSortTablicy::pokazWyniki() const {
-    if (tablica == nullptr) throw std::runtime_error("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
     std::cout << "Tablica po sortowaniu: ";
     tablica->print();
     std::cout << "Liczba porownan: " << tablica->getPorownania() << std::endl;
