@@ -29,34 +29,34 @@ void cSortTablicy::losujElementy(int n) {
         for (int i = 0; i < n; ++i) {
             tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
-        tablica = new cTablica(tab);
+        ustawElementy(tab);
         break;
     case cSortTablicy::uporz:
         tab[0] = std::rand() % 1000;
         for (int i = 1; i < n; ++i) {
-            tab[i] = std::rand() % (1000 - tab[i - 1] + 1) + tab[i - 1]; // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = std::rand() % (1000 - tab[i - 1]) + tab[i - 1]; // losowe liczby uporzadkowane od 0 do 999
         }
-        tablica = new cTablica(tab);
+        ustawElementy(tab);
         break;
     case cSortTablicy::odwr:
         tab[0] = std::rand() % 1000;
         for (int i = 1; i < n; ++i) {
-            tab[i] = tab[i - 1] - std::rand() % (tab[i - 1] + 1); // losowe liczby odwrotnie uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] - std::rand() % (tab[i - 1]); // losowe liczby odwrotnie uporzadkowane od 0 do 999
         }
-        tablica = new cTablica(tab);
+        ustawElementy(tab);
         break;
     case cSortTablicy::prawie:
         // pierwsze 90% elementow jest posortowanych
         tab[0] = std::rand() % 1000;
         ostPosort = 0.9 * n - 1;
         for (int i = 1; i <= ostPosort; ++i) {
-            tab[i] = tab[i - 1] + std::rand() % (1000 - tab[i - 1] + 1); // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] + std::rand() % (1000 - tab[i - 1]); // losowe liczby uporzadkowane od 0 do 999
         }
         // pozostale 10% jest losowych
         for (int i = ostPosort + 1; i < n; ++i) {
-            tab[i] = std::rand() % (1000 - tab[ostPosort]) + tab[ostPosort]; // losowe liczby od 0 do 999
+            tab[i] = std::rand() % (1000 - tab[ostPosort]) + tab[ostPosort]; // losowe liczby od tab[ostPosort] do 999
         }
-        tablica = new cTablica(tab);
+        ustawElementy(tab);
         break;
     default:
         throw MyExceptions("Niewiadomy rodzaj tablicy.\n");
@@ -66,6 +66,7 @@ void cSortTablicy::losujElementy(int n) {
 }
 
 void cSortTablicy::ustawElementy(const std::vector<int>& tab) {
+    delete tablica;
     tablica = new cTablica(tab);
 }
 
@@ -122,16 +123,16 @@ void cSortTablicy::wypiszWyniki(ofstream& write)
     switch (rTab)
     {
     case cSortTablicy::los:
-        write << "tablica uzupelniona losowymi liczbami\t";
+        write << "tablica uzupelniona losowymi liczbami\t\t";
         break;
     case cSortTablicy::uporz:
-        write << "tablica uzupelniona liczbami posortowanymi rosnaco\t";
+        write << "tablica z liczbami posortowanymi rosnaco\t";
         break;
     case cSortTablicy::odwr:
-        write << "tablica uzupelniona liczbami posortowanymi malejaco\t";
+        write << "tablica z liczbami posortowanymi malejaco\t";
         break;
     case cSortTablicy::prawie:
-        write << "tablica czesciowo uporzadkowana (10 % elementow jest na zlej pozycji)\t";
+        write << "tablica czesciowo uporzadkowana\t\t\t";
         break;
     default:
         throw MyExceptions("Niewiadomy rodzaj tablicy.\n");

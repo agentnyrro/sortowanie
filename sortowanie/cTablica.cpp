@@ -49,7 +49,7 @@ void cTablica::quickSortLomuto(int low, int high) {
 
 int cTablica::partitionLomuto(int low, int high) {
     int pivot = tablica[high];
-    int i = low - 1;
+    int i = low;
     for (int j = low; j < high; j++) {
         porownania++;
         if (tablica[j] <= pivot) {
@@ -58,9 +58,9 @@ int cTablica::partitionLomuto(int low, int high) {
             przestawienia++;
         }
     }
-    std::swap(tablica[i + 1], tablica[high]);
+    std::swap(tablica[i], tablica[high]);
     przestawienia++;
-    return i + 1;
+    return i;
 }
 
 void cTablica::quickSortHoare(int low, int high) {
