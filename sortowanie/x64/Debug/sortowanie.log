@@ -1,2 +1,5 @@
-﻿  sortowanie.cpp
+﻿  cTablica.cpp
+C:\Users\qwert\source\repos\sortowanie\sortowanie\cTablica.cpp(13,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\qwert\source\repos\sortowanie\sortowanie\cTablica.cpp(119,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\qwert\source\repos\sortowanie\sortowanie\cTablica.cpp(143,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   sortowanie.vcxproj -> C:\Users\qwert\source\repos\sortowanie\x64\Debug\sortowanie.exe
