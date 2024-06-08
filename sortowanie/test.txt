@@ -1,5 +1,33 @@
 Nazwa metody sortowania 	Dlugosc tablicy 	Rodzaj tablicy 		Liczba porownan 	Liczba przestawien
-Shaker sort			100	tablica uzupelniona losowymi liczbami	3915			2500	
-Quick sort z podzialem Hoare'a	100	tablica uzupelniona losowymi liczbami	1070			160	
-Quick sort z podzialem Lomuto	100	tablica uzupelniona losowymi liczbami	579			357	
-Sortowanie przez kopcowanie	100	tablica uzupelniona losowymi liczbami	1234			567	
+Shaker sort			100	tablica uzupelniona losowymi liczbami		4047			2676	
+Quick sort z podzialem Hoare'a	100	tablica uzupelniona losowymi liczbami		1050			162	
+Quick sort z podzialem Lomuto	100	tablica uzupelniona losowymi liczbami		596			379	
+Sortowanie przez kopcowanie	100	tablica uzupelniona losowymi liczbami		1244			572	
+Shaker sort			100	tablica z liczbami posortowanymi rosnaco	99			0	
+Quick sort z podzialem Hoare'a	100	tablica z liczbami posortowanymi rosnaco	1364			294	
+Quick sort z podzialem Lomuto	100	tablica z liczbami posortowanymi rosnaco	4388			113	
+Sortowanie przez kopcowanie	100	tablica z liczbami posortowanymi rosnaco	516			208	
+Shaker sort			100	tablica z liczbami posortowanymi malejaco	1464			764	
+Quick sort z podzialem Hoare'a	100	tablica z liczbami posortowanymi malejaco	942			295	
+Quick sort z podzialem Lomuto	100	tablica z liczbami posortowanymi malejaco	4950			827	
+Sortowanie przez kopcowanie	100	tablica z liczbami posortowanymi malejaco	324			112	
+Shaker sort			100	tablica czesciowo uporzadkowana			672			26	
+Quick sort z podzialem Hoare'a	100	tablica czesciowo uporzadkowana			1386			262	
+Quick sort z podzialem Lomuto	100	tablica czesciowo uporzadkowana			3886			483	
+Sortowanie przez kopcowanie	100	tablica czesciowo uporzadkowana			636			268	
+Shaker sort			1000	tablica uzupelniona losowymi liczbami		376244			245790	
+Quick sort z podzialem Hoare'a	1000	tablica uzupelniona losowymi liczbami		15463			2460	
+Quick sort z podzialem Lomuto	1000	tablica uzupelniona losowymi liczbami		11799			7513	
+Sortowanie przez kopcowanie	1000	tablica uzupelniona losowymi liczbami		19148			9074	
+Shaker sort			1000	tablica z liczbami posortowanymi rosnaco	999			0	
+Quick sort z podzialem Hoare'a	1000	tablica z liczbami posortowanymi rosnaco	17760			4892	
+Quick sort z podzialem Lomuto	1000	tablica z liczbami posortowanymi rosnaco	493538			1013	
+Sortowanie przez kopcowanie	1000	tablica z liczbami posortowanymi rosnaco	3446			1223	
+Shaker sort			1000	tablica z liczbami posortowanymi malejaco	15864			7964	
+Quick sort z podzialem Hoare'a	1000	tablica z liczbami posortowanymi malejaco	12847			4887	
+Quick sort z podzialem Lomuto	1000	tablica z liczbami posortowanymi malejaco	499500			8927	
+Sortowanie przez kopcowanie	1000	tablica z liczbami posortowanymi malejaco	3024			1012	
+Shaker sort			1000	tablica czesciowo uporzadkowana			52515			2395	
+Quick sort z podzialem Hoare'a	1000	tablica czesciowo uporzadkowana			18373			4442	
+Quick sort z podzialem Lomuto	1000	tablica czesciowo uporzadkowana			403476			4868	
+Sortowanie przez kopcowanie	1000	tablica czesciowo uporzadkowana			5222			2111	

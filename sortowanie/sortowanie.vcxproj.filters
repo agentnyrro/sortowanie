@@ -19,10 +19,13 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="cSortTablicy.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki zasobów</Filter>
     </ClCompile>
     <ClCompile Include="cTablica.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
+    <ClCompile Include="myExceptions.cpp">
+      <Filter>Pliki zasobów</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,11 +34,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="myExceptions.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
     <ClInclude Include="cSortTablicy.h">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="cTablica.h">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

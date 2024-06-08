@@ -24,33 +24,39 @@ void cSortTablicy::losujElementy(int n) {
     int ostPosort = 0; // potrzebne dla prawie posortowanej
     switch (rTab)
     {
-        // 
+    // tablica z losowymi liczbami
     case cSortTablicy::los:
         for (int i = 0; i < n; ++i) {
             tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
         ustawElementy(tab);
         break;
+
+     // tablica z liczbami uporzadkowanymi rosnaco
     case cSortTablicy::uporz:
-        tab[0] = std::rand() % 1000;
+        tab[0] = std::rand() % 500;
         for (int i = 1; i < n; ++i) {
             tab[i] = std::rand() % (1000 - tab[i - 1]) + tab[i - 1]; // losowe liczby uporzadkowane od 0 do 999
         }
         ustawElementy(tab);
         break;
+
+    // tablica z liczbami uporzadkowanymi malejaco
     case cSortTablicy::odwr:
-        tab[0] = std::rand() % 1000;
+        tab[0] = std::rand() % 500 + 500;
         for (int i = 1; i < n; ++i) {
-            tab[i] = tab[i - 1] - std::rand() % (tab[i - 1]); // losowe liczby odwrotnie uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] - std::rand() % (tab[i - 1] + 1); // losowe liczby odwrotnie uporzadkowane od 0 do 999
         }
         ustawElementy(tab);
         break;
+
+    // tablica prawie posortowana
     case cSortTablicy::prawie:
         // pierwsze 90% elementow jest posortowanych
-        tab[0] = std::rand() % 1000;
+        tab[0] = std::rand() % 500;
         ostPosort = 0.9 * n - 1;
         for (int i = 1; i <= ostPosort; ++i) {
-            tab[i] = tab[i - 1] + std::rand() % (1000 - tab[i - 1]); // losowe liczby uporzadkowane od 0 do 999
+            tab[i] = tab[i - 1] + std::rand() % (900 - tab[i - 1]); // losowe liczby uporzadkowane od 0 do 899
         }
         // pozostale 10% jest losowych
         for (int i = ostPosort + 1; i < n; ++i) {
