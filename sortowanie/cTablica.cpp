@@ -49,7 +49,7 @@ void cTablica::quickSortLomuto(int low, int high) {
 
 int cTablica::partitionLomuto(int low, int high) {
     int pivot = tablica[high];
-    int i = low - 1;
+    int i = low-1;
     for (int j = low; j < high; j++) {
         porownania++;
         if (tablica[j] < pivot) {
