@@ -52,7 +52,7 @@ int cTablica::partitionLomuto(int low, int high) {
     int i = low-1;
     for (int j = low; j < high; j++) {
         porownania++;
-        if (tablica[j] < pivot) {
+        if (tablica[j] <= pivot) {
             i++;
             std::swap(tablica[i], tablica[j]);
             przestawienia++;
