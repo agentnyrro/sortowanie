@@ -1,0 +1,2 @@
+Nazwa metody sortowania 	Dlugosc tablicy 	Rodzaj tablicy 		Liczba porownan 	Liczba przestawien
+Shaker sort			100000	tablica uzupelniona losowymi liczbami		-543093037			-1800215920	
