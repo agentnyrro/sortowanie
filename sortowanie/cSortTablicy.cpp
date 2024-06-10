@@ -9,10 +9,7 @@ cSortTablicy::~cSortTablicy() {
     delete tablica;
 }
 
-/**
- * @brief Wprowadza elementy z klawiatury
- * @param n Liczba elementów do wprowadzenia
- */
+
 void cSortTablicy::wprowadzZKlawiatury(int n) {
     std::vector<int> tab(n);
     std::cout << "Wprowadz " << n << " elementow: ";
@@ -22,10 +19,7 @@ void cSortTablicy::wprowadzZKlawiatury(int n) {
     tablica = new cTablica(tab); // utworzenie nowej tablicy z wprowadzonymi elementami
 }
 
-/**
- * @brief Generuje losowe elementy w zale¿noœci od rodzaju tablicy
- * @param n Liczba elementów do wygenerowania
- */
+
 void cSortTablicy::losujElementy(int n) {
     std::vector<int> tab(n);
     std::srand(std::time(0)); // ziarno generatora liczb losowych na podstawie aktualnego czasu
@@ -76,60 +70,43 @@ void cSortTablicy::losujElementy(int n) {
     }
 }
 
-/**
- * @brief Ustawia elementy w obiekcie cTablica
- * @param tab Wektor elementów do ustawienia
- */
+
 void cSortTablicy::ustawElementy(const std::vector<int>& tab) {
     delete tablica; // zwolnienie starej tablicy
     tablica = new cTablica(tab); // utworzenie nowej tablicy z przekazanymi elementami
 }
 
-/**
- * @brief Zwraca elementy z obiektu cTablica
- * @return Wektor elementów
- */
+
 std::vector<int> cSortTablicy::getElements() const {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     return tablica->getElements(); // zwrócenie elementów tablicy
 }
 
-/**
- * @brief Sortuje za pomoc¹ Shaker Sort
- */
+
 void cSortTablicy::sortujShakerSort() {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     tablica->shakerSort(); // wywo³anie metody sortuj¹cej
 }
 
-/**
- * @brief Sortuje za pomoc¹ Quick Sort z podzia³em Lomuto
- */
+
 void cSortTablicy::sortujQuickSortLomuto() {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     tablica->quickSortLomuto(0, tablica->size() - 1); // wywo³anie metody sortuj¹cej z podzia³em Lomuto
 }
 
-/**
- * @brief Sortuje za pomoc¹ Quick Sort z podzia³em Hoare
- */
+
 void cSortTablicy::sortujQuickSortHoare() {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     tablica->quickSortHoare(0, tablica->size() - 1); // wywo³anie metody sortuj¹cej z podzia³em Hoare
 }
 
-/**
- * @brief Sortuje za pomoc¹ Heap Sort
- */
+
 void cSortTablicy::sortujHeapSort() {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     tablica->heapSort(); // wywo³anie metody sortuj¹cej przez kopcowanie
 }
 
-/**
- * @brief Zapisuje wyniki do pliku
- * @param write Obiekt ofstream do zapisu wyników
- */
+
 void cSortTablicy::wypiszWyniki(ofstream& write) {
     // zapisz nazwê metody sortowania
     switch (alg)
@@ -181,9 +158,7 @@ void cSortTablicy::wypiszWyniki(ofstream& write) {
     write << tablica->getPrzestawienia() << "\t\n";
 }
 
-/**
- * @brief Wyœwietla wyniki na konsoli
- */
+
 void cSortTablicy::pokazWyniki() const {
     if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     std::cout << "Tablica po sortowaniu: ";

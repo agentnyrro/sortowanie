@@ -1,17 +1,13 @@
 #include "cTablica.h"
 #include <algorithm>
 
-/**
- * @brief Resetuje liczniki porównañ i przestawieñ do zera
- */
+
 void cTablica::resetCounts() {
     porownania = 0;
     przestawienia = 0;
 }
 
-/**
- * @brief Sortuje tablicê algorytmem Shaker Sort, który jest wariantem sortowania b¹belkowego
- */
+
 void cTablica::shakerSort() {
     resetCounts(); // resetowanie liczników porównañ i przestawieñ
     bool swapped = true;
@@ -50,11 +46,7 @@ void cTablica::shakerSort() {
     }
 }
 
-/**
- * @brief Sortuje tablicê algorytmem Quick Sort z podzia³em Lomuto
- * @param low Indeks pocz¹tkowy
- * @param high Indeks koñcowy
- */
+
 void cTablica::quickSortLomuto(int low, int high) {
     if (low < high) {
         int pi = partitionLomuto(low, high); // uzyskanie indeksu podzia³u
@@ -63,12 +55,7 @@ void cTablica::quickSortLomuto(int low, int high) {
     }
 }
 
-/**
- * @brief Funkcja dziel¹ca dla Quick Sort z podzia³em Lomuto
- * @param low Indeks pocz¹tkowy
- * @param high Indeks koñcowy
- * @return Indeks podzia³u
- */
+
 int cTablica::partitionLomuto(int low, int high) {
     int pivot = tablica[high]; // wybór pivota
     int i = low - 1; // indeks mniejszego elementu
@@ -85,11 +72,7 @@ int cTablica::partitionLomuto(int low, int high) {
     return i + 1; // zwrócenie indeksu podzia³u
 }
 
-/**
- * @brief Sortuje tablicê algorytmem Quick Sort z podzia³em Hoare
- * @param low Indeks pocz¹tkowy
- * @param high Indeks koñcowy
- */
+
 void cTablica::quickSortHoare(int low, int high) {
     if (low < high) {
         int pi = partitionHoare(low, high); // uzyskanie indeksu podzia³u
@@ -98,12 +81,7 @@ void cTablica::quickSortHoare(int low, int high) {
     }
 }
 
-/**
- * @brief Funkcja dziel¹ca dla Quick Sort z podzia³em Hoare
- * @param low Indeks pocz¹tkowy
- * @param high Indeks koñcowy
- * @return Indeks podzia³u
- */
+
 int cTablica::partitionHoare(int low, int high) {
     int pivot = tablica[low]; // wybór pivota
     int i = low - 1; // indeks mniejszego elementu
@@ -127,11 +105,7 @@ int cTablica::partitionHoare(int low, int high) {
     }
 }
 
-/**
- * @brief Funkcja kopcuj¹ca dla Heap Sort
- * @param n Rozmiar kopca
- * @param i Indeks korzenia kopca
- */
+
 void cTablica::heapify(int n, int i) {
     int largest = i; // ustawienie najwiêkszego elementu jako korzeñ
     int left = 2 * i + 1; // lewy liœæ
@@ -152,9 +126,7 @@ void cTablica::heapify(int n, int i) {
     }
 }
 
-/**
- * @brief Sortuje tablicê algorytmem Heap Sort
- */
+
 void cTablica::heapSort() {
     resetCounts(); // resetowanie liczników porównañ i przestawieñ
     int n = tablica.size();
@@ -171,41 +143,27 @@ void cTablica::heapSort() {
     }
 }
 
-/**
- * @brief Zwraca elementy tablicy
- * @return Wektor elementów tablicy
- */
+
 std::vector<int> cTablica::getElements() const {
     return tablica;
 }
 
-/**
- * @brief Zwraca liczbê porównañ wykonanych podczas sortowania
- * @return Liczba porównañ
- */
+
 int cTablica::getPorownania() const {
     return porownania;
 }
 
-/**
- * @brief Zwraca liczbê przestawieñ wykonanych podczas sortowania
- * @return Liczba przestawieñ
- */
+
 int cTablica::getPrzestawienia() const {
     return przestawienia;
 }
 
-/**
- * @brief Zwraca rozmiar tablicy
- * @return Rozmiar tablicy
- */
+
 int cTablica::size() const {
     return tablica.size();
 }
 
-/**
- * @brief Wyœwietla elementy tablicy
- */
+
 void cTablica::print() const {
     for (int i : tablica) {
         std::cout << i << " "; // wyœwietlenie elementu tablicy
