@@ -40,7 +40,7 @@ void testSorting(cSortTablicy& sortowanie, const std::vector<int>& tab) {
 * @param (ofstream&) write -- strumien zapisu do pliku
 */
 void testAll(cSortTablicy& sortowanie, ofstream& write) {
-    int dlugosci[2] = { 100, 1000 }; // sprawdzane dlugosci
+    int dlugosci[3] = { 100, 1000, 10000 }; // sprawdzane dlugosci
     vector<cSortTablicy::algorytm> algs = { cSortTablicy::algorytm::shaker, cSortTablicy::algorytm::qHoare, 
         cSortTablicy::algorytm::qLomuto, cSortTablicy::algorytm::heap }; // wszystkie mozliwe algorytmy
     vector<cSortTablicy::rodzajTab> rodzaje = { cSortTablicy::rodzajTab::los, cSortTablicy::rodzajTab::uporz,
