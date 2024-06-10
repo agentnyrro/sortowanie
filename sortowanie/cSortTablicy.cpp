@@ -1,111 +1,137 @@
 #include "cSortTablicy.h"
 #include <ctime>
 #include <cstdlib>
-//#include <stdexcept>
 #include "myExceptions.h"
 #include <algorithm>
 
+// destruktor do zwolnienia dynamicznie alokowanej pamiêci
 cSortTablicy::~cSortTablicy() {
     delete tablica;
 }
 
+/**
+ * @brief Wprowadza elementy z klawiatury
+ * @param n Liczba elementów do wprowadzenia
+ */
 void cSortTablicy::wprowadzZKlawiatury(int n) {
     std::vector<int> tab(n);
     std::cout << "Wprowadz " << n << " elementow: ";
     for (int i = 0; i < n; ++i) {
-        std::cin >> tab[i];
+        std::cin >> tab[i]; // wprowadzenie elementów do wektora
     }
-    tablica = new cTablica(tab);
+    tablica = new cTablica(tab); // utworzenie nowej tablicy z wprowadzonymi elementami
 }
 
+/**
+ * @brief Generuje losowe elementy w zale¿noœci od rodzaju tablicy
+ * @param n Liczba elementów do wygenerowania
+ */
 void cSortTablicy::losujElementy(int n) {
     std::vector<int> tab(n);
-    std::srand(std::time(0));
+    std::srand(std::time(0)); // ziarno generatora liczb losowych na podstawie aktualnego czasu
 
     switch (rTab)
     {
-    // tablica z losowymi liczbami
-    case cSortTablicy::los:
+    case cSortTablicy::los: // losowe liczby
         for (int i = 0; i < n; ++i) {
             tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
-        ustawElementy(tab);
+        ustawElementy(tab); // ustawienie elementów w tablicy
         break;
 
-     // tablica z liczbami uporzadkowanymi rosnaco
-    case cSortTablicy::uporz:
+    case cSortTablicy::uporz: // liczby posortowane rosn¹co
         for (int i = 0; i < n; ++i) {
             tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
-        std::sort(tab.begin(), tab.end());
-        ustawElementy(tab);
+        std::sort(tab.begin(), tab.end()); // sortowanie rosn¹co
+        ustawElementy(tab); // ustawienie elementów w tablicy
         break;
 
-    // tablica z liczbami uporzadkowanymi malejaco
-    case cSortTablicy::odwr:
+    case cSortTablicy::odwr: // liczby posortowane malej¹co
         for (int i = 0; i < n; ++i) {
             tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
-        std::sort(tab.begin(), tab.end(), std::greater<>());
-        ustawElementy(tab);
+        std::sort(tab.begin(), tab.end(), std::greater<>()); // sortowanie malej¹co
+        ustawElementy(tab); // ustawienie elementów w tablicy
         break;
 
-    // tablica prawie posortowana
-    case cSortTablicy::prawie:
-        // najpierw utworz tablice i posortuj
+    case cSortTablicy::prawie: // prawie posortowane (10% elementów jest nie na swoim miejscu)
         for (int i = 0; i < n; ++i) {
-            tab[i] = std::rand() % 1000; // losowe liczby od 0 do 899
+            tab[i] = std::rand() % 1000; // losowe liczby od 0 do 999
         }
-        std::sort(tab.begin(), tab.end());
-        
-        // zamien losowe 10% elementow
-        for (int i = 0; i < n/20; i++)
-        {
+        std::sort(tab.begin(), tab.end()); // sortowanie rosn¹co
+
+        // zamiana losowych 10% elementów
+        for (int i = 0; i < n / 20; i++) {
             int a = std::rand() % n;
             int b = std::rand() % n;
-            std::swap(tab[a], tab[b]);
+            std::swap(tab[a], tab[b]); // zamiana miejscami dwóch losowych elementów
         }
-        ustawElementy(tab);
+        ustawElementy(tab); // ustawienie elementów w tablicy
         break;
+
     default:
-        throw MyExceptions("Niewiadomy rodzaj tablicy.\n");
+        throw MyExceptions("Niewiadomy rodzaj tablicy\n"); // obs³uga b³êdu w przypadku nieznanego typu tablicy
         break;
     }
-
 }
 
+/**
+ * @brief Ustawia elementy w obiekcie cTablica
+ * @param tab Wektor elementów do ustawienia
+ */
 void cSortTablicy::ustawElementy(const std::vector<int>& tab) {
-    delete tablica;
-    tablica = new cTablica(tab);
+    delete tablica; // zwolnienie starej tablicy
+    tablica = new cTablica(tab); // utworzenie nowej tablicy z przekazanymi elementami
 }
 
+/**
+ * @brief Zwraca elementy z obiektu cTablica
+ * @return Wektor elementów
+ */
 std::vector<int> cSortTablicy::getElements() const {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
-    return tablica->getElements();
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
+    return tablica->getElements(); // zwrócenie elementów tablicy
 }
 
+/**
+ * @brief Sortuje za pomoc¹ Shaker Sort
+ */
 void cSortTablicy::sortujShakerSort() {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
-    tablica->shakerSort();
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
+    tablica->shakerSort(); // wywo³anie metody sortuj¹cej
 }
 
+/**
+ * @brief Sortuje za pomoc¹ Quick Sort z podzia³em Lomuto
+ */
 void cSortTablicy::sortujQuickSortLomuto() {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
-    tablica->quickSortLomuto(0, tablica->size() - 1);
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
+    tablica->quickSortLomuto(0, tablica->size() - 1); // wywo³anie metody sortuj¹cej z podzia³em Lomuto
 }
 
+/**
+ * @brief Sortuje za pomoc¹ Quick Sort z podzia³em Hoare
+ */
 void cSortTablicy::sortujQuickSortHoare() {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
-    tablica->quickSortHoare(0, tablica->size() - 1);
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
+    tablica->quickSortHoare(0, tablica->size() - 1); // wywo³anie metody sortuj¹cej z podzia³em Hoare
 }
 
+/**
+ * @brief Sortuje za pomoc¹ Heap Sort
+ */
 void cSortTablicy::sortujHeapSort() {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
-    tablica->heapSort();
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
+    tablica->heapSort(); // wywo³anie metody sortuj¹cej przez kopcowanie
 }
-void cSortTablicy::wypiszWyniki(ofstream& write)
-{
-    // Zapisz nazwe metody
+
+/**
+ * @brief Zapisuje wyniki do pliku
+ * @param write Obiekt ofstream do zapisu wyników
+ */
+void cSortTablicy::wypiszWyniki(ofstream& write) {
+    // zapisz nazwê metody sortowania
     switch (alg)
     {
     case cSortTablicy::shaker:
@@ -121,14 +147,14 @@ void cSortTablicy::wypiszWyniki(ofstream& write)
         write << "Sortowanie przez kopcowanie\t";
         break;
     default:
-        throw MyExceptions("Niewiadomy rodzaj sortowania\n");
+        throw MyExceptions("Niewiadomy rodzaj sortowania\n"); // obs³uga b³êdu w przypadku nieznanego typu sortowania
         break;
     }
 
-    // Zapisz dlugosc tablicy
+    // zapisz d³ugoœæ tablicy
     write << tablica->size() << '\t';
 
-    // Zapisz rodzaj tablicy
+    // zapisz rodzaj tablicy
     switch (rTab)
     {
     case cSortTablicy::los:
@@ -144,23 +170,24 @@ void cSortTablicy::wypiszWyniki(ofstream& write)
         write << "tablica czesciowo uporzadkowana\t\t\t";
         break;
     default:
-        throw MyExceptions("Niewiadomy rodzaj tablicy.\n");
+        throw MyExceptions("Niewiadomy rodzaj tablicy\n"); // obs³uga b³êdu w przypadku nieznanego typu tablicy
         break;
     }
 
-    // Zapisz liczbe porownan
+    // zapisz liczbê porównañ
     write << tablica->getPorownania() << "\t\t\t";
 
-    // Zapisz liczbe przestawien
+    // zapisz liczbê przestawieñ
     write << tablica->getPrzestawienia() << "\t\n";
 }
 
+/**
+ * @brief Wyœwietla wyniki na konsoli
+ */
 void cSortTablicy::pokazWyniki() const {
-    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta");
+    if (tablica == nullptr) throw MyExceptions("Tablica jest pusta"); // obs³uga b³êdu, gdy tablica jest pusta
     std::cout << "Tablica po sortowaniu: ";
-    tablica->print();
-    std::cout << "Liczba porownan: " << tablica->getPorownania() << std::endl;
-    std::cout << "Liczba przestawien: " << tablica->getPrzestawienia() << std::endl;
+    tablica->print(); // wyœwietlenie posortowanej tablicy
+    std::cout << "Liczba porownan: " << tablica->getPorownania() << std::endl; // wyœwietlenie liczby porównañ
+    std::cout << "Liczba przestawien: " << tablica->getPrzestawienia() << std::endl; // wyœwietlenie liczby przestawieñ
 }
-
-
