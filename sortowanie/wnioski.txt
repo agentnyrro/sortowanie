@@ -1,0 +1,5 @@
+
+Shaker sort jest najwolniejszy, złożonność O(n^2), oprócz przypadków gdy tablica już jest posortowana. 
+Quick sort z podziałem Hoare'a jest szybszy niź z podziałem Lomuto, mimo że oba algorytmy mają średnią złożonność O(n log n). 
+Podział Lomuto degraduje się do O(n^2) w najgorszym przypadku -- gdy tablica już jest posortowana.
+Sortowanie przez kopcowanie jest najszybsze.

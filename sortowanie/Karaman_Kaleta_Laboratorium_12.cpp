@@ -8,6 +8,7 @@
 * @param (cSortTablicy&) sortowanie -- obiekt klasy cSortTablicy odpowiedzialny za sortowanie
 * @param (const std::vector<int>&) tab -- wektor z elementami do posortowania
 */
+/*
 void testSorting(cSortTablicy& sortowanie, const std::vector<int>& tab) {
     try {
         // ustawienie elementow w obiekcie sortowania
@@ -40,6 +41,8 @@ void testSorting(cSortTablicy& sortowanie, const std::vector<int>& tab) {
         std::cerr << "Blad: " << e.what() << std::endl;
     }
 }
+*/
+
 
 /*
 * Funkcja do przetestowania wszystkich algorytmow na roznych rodzajach tablic i zapisu wynikow do pliku

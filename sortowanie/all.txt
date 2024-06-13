@@ -47,3 +47,12 @@ Shaker sort			10000	tablica czesciowo uporzadkowana			4617899			3033455
 Quick sort z podzialem Hoare'a	10000	tablica czesciowo uporzadkowana			357660			17890	
 Quick sort z podzialem Lomuto	10000	tablica czesciowo uporzadkowana			392538			253913	
 Sortowanie przez kopcowanie	10000	tablica czesciowo uporzadkowana			268954			129477	
+
+
+
+
+
+Shaker sort jest najwolniejszy, złożoność O(n^2), oprócz przypadków gdy tablica już jest posortowana. 
+Quick sort z podziałem Hoare'a jest szybszy niź z podziałem Lomuto, mimo że oba algorytmy mają średnią złożoność O(n log n). 
+Podział Lomuto degraduje się do O(n^2) w najgorszym przypadku -- gdy tablica już jest posortowana.
+Sortowanie przez kopcowanie jest najszybsze, ma złożoność O(n log n).
